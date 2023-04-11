@@ -12,7 +12,7 @@ before_install:
 - sudo npm i -g npx
 
 before_script:
-- sudo npx playwright install --with-deps
+- npx playwright install --with-deps
 
 script:
 - npm run build
