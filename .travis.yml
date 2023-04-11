@@ -12,6 +12,8 @@ before_install:
 - sudo npm i -g npx
 
 before_script:
+- ls -a /home/travis/build/aditya-sriram/playwright/
+- ls -a /home/travis/build/aditya-sriram/playwright/packages/
 - npx playwright install --with-deps
 
 script:
