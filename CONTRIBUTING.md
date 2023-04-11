@@ -1,6 +1,6 @@
 # Contributing
 
-- [How to Contribute](#how-to-contribute)
+- [How to Contribute](#how-to-contribute) TEST
   * [Getting Code](#getting-code)
   * [Code reviews](#code-reviews)
   * [Code Style](#code-style)
