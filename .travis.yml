@@ -7,7 +7,7 @@ before_install:
 - npm i -g npm@latest
 
 before_script:
-- npx playwright install
+- sudo npx playwright install
 
 script:
 - npm run build
