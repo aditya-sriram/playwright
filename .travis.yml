@@ -16,5 +16,5 @@ before_script:
 - npx playwright install
 
 script:
-- npm test
+- npm run ctest -- --headed
 
