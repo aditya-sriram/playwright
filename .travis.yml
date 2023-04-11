@@ -5,6 +5,8 @@ node_js:
   
 before_install:
 - npm i -g npm@latest
+
+after_install:
 - npx playwright install
 
 script:
