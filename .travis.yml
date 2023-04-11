@@ -5,10 +5,9 @@ node_js:
   
 before_install:
 - npm i -g npm@latest
-- sudo npm i -g npx
 
 before_script:
-- sudo npx playwright install --with-deps
+- sudo $(which npx) playwright install --with-deps
 
 script:
 - npm run build
