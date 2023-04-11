@@ -1,5 +1,7 @@
 language: node_js
 
+sudo: required
+
 node_js:
 - 14
   
@@ -7,7 +9,7 @@ before_install:
 - npm i -g npm@latest
 
 before_script:
-- sudo $(which npx) playwright install --with-deps
+- sudo npx playwright install --with-deps
 
 script:
 - npm run build
