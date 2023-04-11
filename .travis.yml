@@ -5,6 +5,7 @@ node_js:
   
 before_install:
 - npm i -g npm@latest
+- npx playwright install
 
 script:
 - npm run build
