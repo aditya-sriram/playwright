@@ -11,13 +11,10 @@ before_install:
 # - sudo apt-get install npm
 # - sudo npm i -g npx
 
-# before_script:
-# - ls -a /home/travis/build/aditya-sriram/playwright/
-# - ls -a /home/travis/build/aditya-sriram/playwright/packages/
-
+before_script:
+- npm run build
+- npx playwright install
 
 script:
-- npm run build
-- npx playwright install --with-deps
 - npm test
 
