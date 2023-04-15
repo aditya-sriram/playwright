@@ -19,7 +19,7 @@ import type { ActionTraceEvent } from '@trace/trace';
 import * as React from 'react';
 import './consoleTab.css';
 import * as modelUtil from './modelUtil';
-// import { vsprintf } from "printj";
+import { vsprintf } from "printj";
 
 export const ConsoleTab: React.FunctionComponent<{
   action: ActionTraceEvent | undefined,
@@ -100,9 +100,7 @@ function formatString(msg: string | undefined): string | undefined {
         var valid = count == substitution_split.length;
         console.log(valid);
         if (valid) {
-          // msg = vsprintf(substitution_section, substitution_split);
-          console.log(msg);
-          msg="TESTING";
+          msg = vsprintf(substitution_section, substitution_split);
         }
       }
   }
