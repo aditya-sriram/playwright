@@ -19,6 +19,7 @@ import type { ActionTraceEvent } from '@trace/trace';
 import * as React from 'react';
 import './consoleTab.css';
 import * as modelUtil from './modelUtil';
+// import { vsprintf } from "printj";
 
 export const ConsoleTab: React.FunctionComponent<{
   action: ActionTraceEvent | undefined,
@@ -44,6 +45,10 @@ export const ConsoleTab: React.FunctionComponent<{
   return <div className='console-tab'>{
     entries.map((entry, index) => {
       const { message, error } = entry;
+      var formattedString = formatString(message?.text);
+      if (formattedString && message) {
+        message.text = formattedString;
+      }
       if (message) {
         const url = message.location.url;
         const filename = url ? url.substring(url.lastIndexOf('/') + 1) : '<anonymous>';
@@ -79,4 +84,27 @@ function iconClass(message: channels.ConsoleMessageInitializer): string {
     case 'warning': return 'warning';
   }
   return 'blank';
+}
+
+function formatString(msg: string | undefined): string | undefined {
+  if (!msg) return msg;
+  var match = /(\%.)(?!.*\1)/.exec(msg);
+  if (match) {
+      var idx = match.index + 2;
+      var substitution_section = msg.substring(0, idx).trim();
+      var substitution = msg.substring(idx).trim();
+      var substitution_matches = msg.match(/\%./g);
+      if (substitution_matches) {
+        var count = substitution_matches.length;
+        var substitution_split = substitution.split(" ")
+        var valid = count == substitution_split.length;
+        console.log(valid);
+        if (valid) {
+          // msg = vsprintf(substitution_section, substitution_split);
+          console.log(msg);
+          msg="TESTING";
+        }
+      }
+  }
+  return msg;
 }

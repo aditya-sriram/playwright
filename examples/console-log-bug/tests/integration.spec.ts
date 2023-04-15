@@ -12,7 +12,7 @@ import { test, expect } from '@playwright/test';
 test.describe("testcase", () => {
   test("should correctly format string inputs", async ({page}) => {
     await page.evaluate(() => {
-      console.log('%s', 'Hello, World!');
+      console.log('%s %s', 'Hello, World!');
     });
   })
 })
