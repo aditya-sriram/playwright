@@ -104,7 +104,7 @@ test('should not collect snapshots by default', async ({ context, page, server }
   expect(events.some(e => e.type === 'resource-snapshot')).toBeFalsy();
 });
 
-test.only('should properly format substitution strings in trace console', async ({ browserName, context, page, server }, testInfo) => {
+test('should properly format substitution strings in trace console', async ({ browserName, context, page, server }, testInfo) => {
   test.skip(browserName !== 'chromium', 'This is only a problem in chromium');
   await context.tracing.start();
   await page.goto(server.EMPTY_PAGE);
